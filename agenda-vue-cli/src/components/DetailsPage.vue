@@ -1,18 +1,18 @@
 <script lang="ts">
 
 export default {
-    name: 'HomeView',
-}   
+    name: 'DetailsPage',
+}
 </script>
 
 <template>
-    <div class="home_view">
-        <h1>This is the home view</h1>
+    <div class="details_page">
+        <h1>This is the details page</h1>
     </div>
 </template>
 
 <style>
-.home_view {
+.details_page {
   padding: 2rem;
 }
 </style>
