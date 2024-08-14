@@ -1,28 +1,25 @@
 <template>
-    <router-link to="/add"> <h2>Adicionar novo contato</h2> </router-link>
-    <h1> Detalhes do contato </h1>
+    <router-link to="/"> <h2>Voltar</h2> </router-link>
+    <!--Add a Header-->
+    <h1> Dados do contato </h1>
+    <div id="contactName-table">
+    <div id="contactName-header">
+      <div id="contactName-table-rows">
+        <div class="contactName-table-row">
+          <textarea v-model="this.name">Nome: {{ this.name }}</textarea>
+          <textarea v-model="this.cellNumber">Telefone: {{ this.cellNumber }}</textarea>
+          <textarea v-model="this.address">Endereço: {{ this.address }}</textarea>
+          <textarea v-model="this.email">E-mail: {{ this.email }}</textarea>
+          <div>
+                <router-link class="btn-update" :to="'/update/' + this.$route.params.id"> Editar </router-link>
+                <button class="btn-delete" @click="deleteContact(this.id)"> Deletar </button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 
-    <table border="1">
-        <tr>
-            <td> ID </td>
-            <td> Nome </td>
-            <td> Celular </td>
-            <td> Endereço </td>
-            <td> Email </td>
-            <td> Detalhes </td>
-        </tr>
-        <tr v-for="contact in contacts" :key="contact.id">
-            <td> {{ contact.id }} </td>
-            <td> {{ contact.name }} </td>
-            <td> {{ contact.cellNumber }} </td>
-            <td> {{ contact.address }} </td>
-            <td> {{ contact.email }} </td>
-            <td>
-                <router-link class="btn-update" :to="'/update/' + contact.id"> Editar </router-link>
-                <button class="btn-delete" @click="deleteContact(contact.id)"> Deletar </button>
-            </td>
-        </tr>
-    </table>
+    <!--Add a Footer-->
 
 </template>
 <!---->
@@ -52,19 +49,20 @@ export default {
             alert(`${result.name} foi excluído com sucesso.`);
 
         },
-        async loadData() {
-            const result = await axios.get("http://localhost:3000/contacts");
-            this.contacts = result.data;
+
+    },
+    async mounted() {
+        const result = await axios.get("http://localhost:3000/contacts/"+this.$route.params.id);
+            console.log(result.data);
+            this.contact = result.data;
             this.name = result.data.name;
             this.cellNumber = result.data.cellNumber;
             this.address = result.data.address;
             this.email = result.data.email;
+            
             console.log(result.data);
-        },
     },
-    async mounted() {
-        this.loadData();
-    }
+    
 
 }
 
