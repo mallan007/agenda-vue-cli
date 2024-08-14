@@ -1,5 +1,5 @@
 <template>
-
+    <!--Add a Header-->
     <h1> Adicionar Contato</h1>
     <form class="add_new_contact">
     <div class="input-container">
@@ -20,6 +20,7 @@
       </div>
         <button class="btn-add" @click="addNewContact"> Adicionar Novo Contato </button>
     </form>    
+    <!--Add a Footer-->
 </template>
 <!---->
 <script>
