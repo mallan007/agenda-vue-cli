@@ -1,5 +1,10 @@
 <script lang="ts">
 
+export default {
+  name: 'App',
+  components: {
+  }
+}
 </script>
 
 <template>
@@ -7,16 +12,7 @@
     
 
     <div class="wrapper">
-      <div>
-        Página Inicial
-      </div>
-
-      <nav>
-        <router-link to="/">Home</router-link>
-        <router-link to="/add">Adicionar Contato</router-link>
-        <router-link to="/details">Detalhes do Contato</router-link>
-        <router-link to="/update">Editar Contato</router-link>
-      </nav>
+      <iconify-icon icon="marketeq:agenda"></iconify-icon>
     </div>
   </header>
 

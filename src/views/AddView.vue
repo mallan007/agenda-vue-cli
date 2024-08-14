@@ -1,13 +1,17 @@
 <script lang="ts">
+import AddPage from '@/components/AddPage.vue';
 
 export default {
     name: 'AddView',
+    components: {
+        AddPage
+    }
 }   
 </script>
 
 <template>
     <div class="add_view">
-        <h1>This is the add view</h1>
+        <AddPage />
     </div>
 </template>
 

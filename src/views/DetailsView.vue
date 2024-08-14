@@ -1,13 +1,17 @@
 <script lang="ts">
+import DetailsPage from '@/components/DetailsPage.vue';
 
 export default {
     name: 'DetailsView',
+    components: {
+        DetailsPage
+    }
 }   
 </script>
 
 <template>
     <div class="details_view">
-        <h1>This is the details view</h1>
+        <DetailsPage />
     </div>
 </template>
 

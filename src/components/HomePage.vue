@@ -1,60 +1,48 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import IContact from "@/interfaces/IContact";
-import { getContacts } from "@/http";
-import axios from "axios";
+<script>
+import axios from 'axios';
 
-export default defineComponent({
-  name: "HomePage",
-
+export default {
+  name: 'HomePage',
   data() {
     return {
-      contacts: [] as IContact [],
-    };
+      name: '',
+      cellNumber: '',
+      address: '',
+      email: '',
+      contacts: [],
+    }
+  },
+  components: {
   },
   methods: {
-
-  },
-    async created() {
-      const contacts = await getContacts();
-
-      this.contacts = contacts;
+    async loadData() {
+      const result = await axios.get("http://localhost:3000/contacts");
+      this.contacts = result.data;
+      this.name = result.data.name;
+      this.cellNumber = result.data.cellNumber;
+      this.address = result.data.address;
+      this.email = result.data.email;
+      console.log(result.data);
     },
+  },
+  async mounted() {
+    this.loadData();
+  }
 
-  })
+}
+
 </script>
 
-
 <template>
-  <div id="btn-add-link">
-    <router-link to="/add">
-      <h2>Adicionar novo contato</h2>
-    </router-link>
-  </div>
-  <div class="main-container">
-    <div id="contactName-table">
-      <h1>Lista de Contatos:</h1>
-    </div>
-    <div id="contactName-header">
-      <div id="contactName-table-rows">
-        <div class="contactName-table-row" v-for="contact in contacts" :key="contact.id">
-          <div class="contactName-table-cell">
-            {{ contact.name }}
-            <router-link :to="'/details/' + contact.id">
-              <button class="btn-details">
-                Exibir Detalhes
-              </button>
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <h1> Lista de Contatos </h1>
+
+  <table border="1">
+    <tr>
+      <td> Todos os contatos </td>
+    </tr>
+    <tr v-for="contact in contacts" :key="contact.id">
+      <td> <router-link :to="'/details/'+contact.id">{{ contact.name }} </router-link> </td>
+    </tr>
+  </table>
 
 </template>
-
-<style>
-.home {
-  padding: 2rem;
-}
-</style>

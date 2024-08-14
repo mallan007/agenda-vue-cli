@@ -1,13 +1,17 @@
 <script lang="ts">
+import HomePage from '@/components/HomePage.vue';
 
 export default {
     name: 'HomeView',
+    components: {
+        HomePage
+    }
 }   
 </script>
 
 <template>
     <div class="home_view">
-        <h1>This is the home view</h1>
+        <HomePage />
     </div>
 </template>
 

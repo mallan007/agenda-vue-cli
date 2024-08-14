@@ -1,15 +1,22 @@
+<script lang="ts">
+import UpdatePage from '@/components/UpdatePage.vue';
+
+export default {
+    name: 'UpdateView',
+    components: {
+        UpdatePage
+    }
+}   
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    <div class="update_view">
+        <UpdatePage />
+    </div>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+.update_view {
+  padding: 2rem;
 }
 </style>
