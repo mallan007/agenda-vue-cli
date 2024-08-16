@@ -1,30 +1,4 @@
-<template>
-  <!--Add a Header-->
-  <h1> Adicionar Contato</h1>
-  <form class="add_new_contact">
-    <div class="input-container">
-      <label for="name"> Nome do Contato: </label>
-      <input type="text" name="name" v-model="contact.name" placeholder="Informe o nome: " />
-    </div>
-    <div class="input-container">
-      <label for="cellNumber"> Número de Telefone: </label>
-      <input type="text" name="cellNumber" v-model="contact.cellNumber" placeholder="Informe o telefone: " />
-    </div>
-    <div class="input-container">
-      <label for="address"> Endereço: </label>
-      <input type="text" name="address" v-model="contact.address" placeholder="Informe o endereço: " />
-    </div>
-    <div class="input-container">
-      <label for="email"> E-mail: </label>
-      <input type="text" name="email" v-model="contact.email" placeholder="Informe o email: " />
-    </div>
-    <button class="btn-add" @click="addNewContact"> Adicionar Novo Contato </button>
-  </form>
-  <!--Add a Footer-->
-</template>
-<!---->
-<script>
-
+<script lang="ts">
 import axios from 'axios';
 
 export default {
@@ -54,12 +28,35 @@ export default {
         alert('Contato criado com sucesso');
         this.$router.push("/");
       }
-      alert(`${result.name} foi adicionado com sucesso.`);
+      //alert(`${result.name} foi adicionado com sucesso.`);
     },
   },
 }
-
 </script>
+<!---->
+<template>
+  <form class="add_new_contact">
+    <h1> Adicionar Contato</h1>
+    <div class="input-container">
+      <label for="name"> Nome do Contato: </label>
+      <input type="text" name="name" v-model="contact.name" placeholder="Informe o nome: " />
+    </div>
+    <div class="input-container">
+      <label for="cellNumber"> Número de Telefone: </label>
+      <input type="text" name="cellNumber" v-model="contact.cellNumber" placeholder="Informe o telefone: " />
+    </div>
+    <div class="input-container">
+      <label for="address"> Endereço: </label>
+      <input type="text" name="address" v-model="contact.address" placeholder="Informe o endereço: " />
+    </div>
+    <div class="input-container">
+      <label for="email"> E-mail: </label>
+      <input type="text" name="email" v-model="contact.email" placeholder="Informe o email: " />
+    </div>
+    <button class="btn-add" @click="addNewContact"> Adicionar Novo Contato </button>
+    <router-link class="btn-back" to="/">Página Inicial</router-link>
+  </form>
+</template>
 <!---->
 <style scoped>
 #add_new_contact {
@@ -87,7 +84,8 @@ input {
   width: 300px;
 }
 
-.btn-add {
+.btn-add,
+.btn-back {
   background-color: rgba(171, 230, 235, 0.246);
   color: rgb(188, 36, 173);
   font-weight: bold;
@@ -99,7 +97,8 @@ input {
   transition: 0.5s;
 }
 
-.btn-add:hover {
+.btn-add:hover,
+.btn-back:hover {
   background-color: transparent;
   color: rgba(61, 18, 231, 0.864);
 }

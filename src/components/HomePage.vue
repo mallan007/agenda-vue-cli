@@ -28,34 +28,25 @@ export default {
   async mounted() {
     this.loadData();
   }
-
 }
-
 </script>
-
+<!---->
 <template>
-  <!--Add a Header-->
-  
   <div class="main-container">
-    
     <div id="contactName-table">
-      <div class="btn-add-link">
-        <router-link to="/add"> <h3>Adicionar novo contato</h3> </router-link>
-      </div>
-      <h1>Lista de Contatos:</h1>
     </div>
     <div id="contactName-header">
+      <router-link to="/add" class="btn-add-link">Adicionar novo contato</router-link>
+      <h1>Lista de Contatos:</h1>
       <div id="contactName-table-rows">
-        <div class="contactName-table-row" v-for="contact in contacts" :key="contact.id"
-        >
+        <div class="contactName-table-row" v-for="contact in contacts" :key="contact.id">
           <div class="contactName-table-cell">
-            <router-link class="btn-details" :to="'/details/'+contact.id">{{ contact.name }} </router-link>
+            <router-link class="btn-details" :to="'/details/' + contact.id">{{ contact.name }} </router-link>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--Add a Footer-->
 </template>
 <!---->
 <style scoped>
@@ -63,22 +54,26 @@ export default {
   max-width: 300px;
   margin: 0 auto;
 }
+
 #contactName-table-header,
 #contactName-table-rows,
 .contactName-table-row {
   display: list-item;
   flex-wrap: wrap;
 }
+
 #contactName-table-header {
   font-weight: bold;
   padding: 12px;
   border-bottom: 3px solid black;
 }
+
 .contactName-table-row {
   width: 300px;
   padding: 12px;
   border: 1px solid antiquewhite;
 }
+
 .btn-details {
   background-color: rgba(171, 230, 235, 0.246);
   color: rgb(188, 36, 173);
@@ -89,11 +84,13 @@ export default {
   cursor: pointer;
   transition: 0.5s;
 }
+
 .btn-details:hover {
   background-color: transparent;
   color: rgba(61, 18, 231, 0.864);
 }
-  .btn-add-link {
+
+.btn-add-link {
   max-width: 300px;
   margin: 0 auto;
   font-weight: bold;
@@ -104,6 +101,7 @@ export default {
   color: black;
   justify-content: left;
 }
+
 .btn-details,
 .btn-add-link {
   background-color: rgba(171, 230, 235, 0.246);
@@ -115,6 +113,7 @@ export default {
   cursor: pointer;
   transition: 0.5s;
 }
+
 .btn-details:hover,
 .btn-add-link:hover {
   background-color: transparent;
