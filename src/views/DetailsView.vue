@@ -4,7 +4,7 @@ import DetailsPage from '@/components/DetailsPage.vue';
 export default {
     name: 'DetailsView',
     components: {
-        DetailsPage
+        DetailsPage,
     }
 }   
 </script>

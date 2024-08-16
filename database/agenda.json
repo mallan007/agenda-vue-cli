@@ -39,7 +39,7 @@
       "name": "Angelina Metz II",
       "cellNumber": "695-453-6005",
       "address": "789 Orn Via",
-      "email": "Ara.Wilderman35@gmail.com",
+      "email": "angelina.metz.two@gmail.com",
       "id": "10"
     },
     {
@@ -83,13 +83,6 @@
       "address": "0871 Lesch Garden",
       "email": "Reta_Koch25@hotmail.com",
       "id": "16"
-    },
-    {
-      "name": "Ms. Gilbert Beahan",
-      "cellNumber": "372-823-3067",
-      "address": "2115 Roberts Shore",
-      "email": "Peter36@hotmail.com",
-      "id": "17"
     },
     {
       "name": "Beulah Bernhard",
@@ -141,9 +134,17 @@
       "id": "24"
     },
     {
+      "name": "Alcebiliases",
+      "cellNumber": "21 98888-8888",
+      "address": "Rua Billie Ocean, 25",
+      "email": "alcebilias@gmail.com",
       "id": "25"
     },
     {
+      "name": "Draculiliane",
+      "cellNumber": "11 98123-8123",
+      "address": "Rua Pensilvânia, 1412",
+      "email": "dracu.liliane@yahoo.com.br",
       "id": "26"
     },
     {
@@ -215,13 +216,6 @@
       "cellNumber": "85 99 6666 - 6666",
       "address": "Rua Donnie Darko, 1999",
       "email": "juv3n@irede.com"
-    },
-    {
-      "id": "37",
-      "name": "Roadovaldo",
-      "cellNumber": "85 9 6666 - 6666",
-      "address": "Rua Loucademia de Polícia, 1984",
-      "email": "road-ox@irede.com"
     },
     {
       "id": "38",

@@ -1,10 +1,12 @@
 <script lang="ts">
 import UpdatePage from '@/components/UpdatePage.vue';
+import FooTer from '@/components/FooTer.vue';
 
 export default {
     name: 'UpdateView',
     components: {
-        UpdatePage
+        UpdatePage,
+        FooTer
     }
 }   
 </script>
@@ -12,6 +14,7 @@ export default {
 <template>
     <div class="update_view">
         <UpdatePage />
+        <FooTer />
     </div>
 </template>
 

@@ -9,11 +9,7 @@ export default {
 
 <template>
   <header>
-    
 
-    <div class="wrapper">
-      <iconify-icon icon="marketeq:agenda"></iconify-icon>
-    </div>
   </header>
 
   <RouterView />

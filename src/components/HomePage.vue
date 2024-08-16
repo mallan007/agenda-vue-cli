@@ -35,11 +35,13 @@ export default {
 
 <template>
   <!--Add a Header-->
-  <div id="btn-add-link">
-    <router-link to="/add"> <h3>Adicionar novo contato</h3> </router-link>
-  </div>
+  
   <div class="main-container">
+    
     <div id="contactName-table">
+      <div class="btn-add-link">
+        <router-link to="/add"> <h3>Adicionar novo contato</h3> </router-link>
+      </div>
       <h1>Lista de Contatos:</h1>
     </div>
     <div id="contactName-header">
@@ -58,7 +60,7 @@ export default {
 <!---->
 <style scoped>
 #contactName-table {
-  max-width: 500px;
+  max-width: 300px;
   margin: 0 auto;
 }
 #contactName-table-header,
@@ -73,7 +75,7 @@ export default {
   border-bottom: 3px solid black;
 }
 .contactName-table-row {
-  width: 100%;
+  width: 300px;
   padding: 12px;
   border: 1px solid antiquewhite;
 }
@@ -91,8 +93,8 @@ export default {
   background-color: transparent;
   color: rgba(61, 18, 231, 0.864);
 }
-#btn-add-link {
-  max-width: 500px;
+  .btn-add-link {
+  max-width: 300px;
   margin: 0 auto;
   font-weight: bold;
   padding: 12px;
@@ -100,8 +102,10 @@ export default {
   font-size: 20px;
   margin-bottom: 30px;
   color: black;
+  justify-content: left;
 }
-.btn-details {
+.btn-details,
+.btn-add-link {
   background-color: rgba(171, 230, 235, 0.246);
   color: rgb(188, 36, 173);
   border: 2px solid black;
@@ -111,7 +115,8 @@ export default {
   cursor: pointer;
   transition: 0.5s;
 }
-.btn-details:hover {
+.btn-details:hover,
+.btn-add-link:hover {
   background-color: transparent;
   color: rgba(61, 18, 231, 0.864);
 }
