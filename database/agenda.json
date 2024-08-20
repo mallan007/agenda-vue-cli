@@ -1,13 +1,6 @@
 {
   "contacts": [
     {
-      "name": "Gwendolyn Roberts",
-      "cellNumber": "502-976-5931",
-      "address": "152 Olson Bypass",
-      "email": "gwendolyn888@gmail.com",
-      "id": "4"
-    },
-    {
       "name": "Terri Rosenbaum",
       "cellNumber": "566-515-5182",
       "address": "6375 Uriah Brooks",
@@ -211,11 +204,11 @@
       "email": "may-ten@irede.com"
     },
     {
-      "id": "36",
       "name": "Juventunication",
       "cellNumber": "85 99 6666 - 6666",
       "address": "Rua Donnie Darko, 1999",
-      "email": "juv3n@irede.com"
+      "email": "juv3n@irede.com",
+      "id": "36"
     },
     {
       "id": "38",
@@ -230,13 +223,6 @@
       "cellNumber": "85 9 9779 - 9779",
       "address": "Rua Van Helsing, 2005",
       "email": "string.andersen@yahoo.com.br"
-    },
-    {
-      "name": "Heraltinho Saurus",
-      "cellNumber": "11 98585-8585",
-      "address": "Rua Meteoro de Pégasus, 9001",
-      "email": "heralt.saurus@hotmail.com",
-      "id": "c30f"
     }
   ]
 }

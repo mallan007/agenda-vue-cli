@@ -24,6 +24,21 @@ npm install json-server
 npm install iconify
 
 ``` 
+
+### Tailwind
+See [Tailwind intallation page](https://tailwindcss.com/docs/installation/using-postcss).
+```sh
+npm npm install -D tailwindcss postcss autoprefixer
+
+``` 
+
+### Iconify with Tailwind:
+
+```sh
+npm install --save-dev @iconify/tailwind
+
+``` 
+
 ## Project Setup
 
 ```sh

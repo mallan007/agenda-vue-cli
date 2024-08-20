@@ -13,3 +13,4 @@ async function loadData() {
 
 export default loadData; 
 // DetailsPage e UpdatePage puxam do loadData através do método 'mounted' 
+// const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;

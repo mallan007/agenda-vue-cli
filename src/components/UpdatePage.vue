@@ -40,71 +40,52 @@ export default {
 </script>
 <!---->
 <template>
-  <h1> Editar Contato</h1>
-  <form class="edit_contact">
-    <div class="input-container">
-      <label for="name"> Nome do Contato: </label>
-      <input type="text" name="name" v-model="contact.name" placeholder="Informe o nome: " />
+  <form class="max-w-md mx-auto">
+    <div class="relative z-0 w-full mb-5 group">
+      <input type="text" name="floating_name" id="floating_name" v-model="contact.name" 
+        class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
+        placeholder=" " required />
+      <label for="floating_name"
+        class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+         Nome: </label>
     </div>
-    <div class="input-container">
-      <label for="cellNumber"> Número de Telefone: </label>
-      <input type="text" name="cellNumber" v-model="contact.cellNumber" placeholder="Informe o telefone: " />
+    <div class="relative z-0 w-full mb-5 group">
+      <input type="tel" pattern="[0-9]{2}-[0-9]{1}-[0-9]{4}-[0-9]{4}" name="floating_cellNumber" id="floating_cellNumber" v-model="contact.cellNumber" 
+        class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
+        placeholder=" " required />
+      <label for="floating_cellNumber"
+        class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+         Número de Contato: </label>
     </div>
-    <div class="input-container">
-      <label for="address"> Endereço: </label>
-      <input type="text" name="address" v-model="contact.address" placeholder="Informe o endereço: " />
+    <div class="relative z-0 w-full mb-5 group">
+      <input type="text" name="floating_address" id="floating_address"  v-model="contact.address" 
+        class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
+        placeholder=" " required />
+      <label for="floating_address"
+        class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+         Endereço: </label>
     </div>
-    <div class="input-container">
-      <label for="email"> E-mail: </label>
-      <input type="text" name="email" v-model="contact.email" placeholder="Informe o email: " />
+    <div class="relative z-0 w-full mb-5 group">
+      <input type="email" name="floating_email" id="floating_email" v-model="contact.email" 
+        class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
+        placeholder=" " required />
+      <label for="floating_email"
+        class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+         E-mail: </label>
     </div>
-    <button class="btn-add" @click="updateContact"> Atualizar Contato </button>
+    <div class="relative z-0 w-full mb-5 group">
+    <button @click="updateContact" type="updateContact"
+      class="text-white bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
+       Atualizar Contato</button>
+    </div>   
+    <div class="relative z-0 w-full mb-5 group">
+    <button type="route-back" @click="$router.back()"
+    class="text-white bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
+     Voltar a Detalhes </button>
+   </div>
   </form>
-  <button class="btn-back" @click="$router.back()"> Voltar a Detalhes </button>
 </template>
 <!---->
 <style scoped>
-#edit_contact {
-  max-width: 400px;
-  margin: 0 auto;
-}
 
-.input-container {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: solid black;
-  padding: 5px 10px;
-  border-left: 4px solid rgb(188, 36, 173);
-  color: rgb(188, 36, 173);
-}
-
-input {
-  padding: 5px 10px;
-  width: 300px;
-}
-
-.btn-add,
-.btn-back {
-  background-color: rgba(171, 230, 235, 0.246);
-  color: rgb(188, 36, 173);
-  font-weight: bold;
-  border: 2px solid black;
-  padding: 10px;
-  font-size: 16px;
-  margin: 0 auto;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.btn-add:hover,
-.btn-back:hover {
-  background-color: transparent;
-  color: rgba(61, 18, 231, 0.864);
-}
 </style>

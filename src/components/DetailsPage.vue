@@ -34,11 +34,81 @@ export default defineComponent({
     this.cellNumber = result.data.cellNumber;
     this.address = result.data.address;
     this.email = result.data.email;
+
     console.log(result.data);
   },
 })
 </script>
 <!---->
+<template>
+  <form class="max-w-md mx-auto">
+    <div class="relative z-0 w-full mb-5 group">
+      <input type="text" name="floating_name" id="floating_name" v-model="this.name" 
+        class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
+        placeholder=" " disabled readonly />
+      <label for="floating_name"
+        class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+         Nome: </label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input type="tel" pattern="[0-9]{2}-[9]{1}-[0-9]{4}-[0-9]{4}" name="floating_cellNumber" id="floating_cellNumber" v-model="this.cellNumber" 
+        class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
+        placeholder=" " disabled readonly />
+      <label for="floating_cellNumber"
+        class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+         Número de Contato: </label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input type="text" name="floating_address" id="floating_address" v-model="this.address" 
+        class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
+        placeholder=" " disabled readonly />
+      <label for="floating_address"
+        class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+         Endereço: </label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <span class="icon-[ic--outline-email]" style="width: 48px; height: 48px;">
+      <input type="email" name="floating_email" id="floating_email" v-model="this.email" 
+        class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
+        placeholder=" " disabled readonly />
+      <label for="floating_email"
+        class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+         E-mail: </label>
+         </span>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+    <button type="editContact"
+      class="text-fuchsia-500 bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
+       <router-link :to="'/update/'+this.$route.params.id">
+         Editar Contato </router-link>
+      </button>
+    </div>  
+    <div class="relative z-0 w-full mb-5 group">
+    <button type="editContact" @click="$router.push('/update/'+this.$route.params.id)"
+      class="text-fuchsia-500 bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
+         Editar Contato com RoutePush
+      </button>
+    </div> 
+    <div class="relative z-0 w-full mb-5 group">
+    <button type="deleteContact" @click="deleteContact(this.id)"
+      class="text-fuchsia-500 bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
+       Excluir Contato</button>
+    </div> 
+  
+    <div class="relative z-0 w-full mb-5 group">
+    <button type="route-home" @click="$router.push('/')"
+      class="text-fuchsia-500 bg-fuchsia-700 hover:bg-sky-300 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-sky-200">
+       Voltar</button>
+    </div> 
+    
+  </form>
+</template>
+<style scoped>
+
+</style>
+<!----
+Erro do Tailwind na rota de Update
+
 <template>
   <div id="contactName-table">
     <h1> Dados do contato </h1>
@@ -64,111 +134,5 @@ export default defineComponent({
     <button class="btn-back" @click="$router.back()">Voltar ao Início</button>
   </div>
 </template>
-<!---->
-<style scoped>
-#contactName-table {
-  max-width: 500px;
-  margin: 0 auto;
-  justify-content: left;
 
-}
-
-#contactName-table-header,
-#contactName-table-rows,
-.contactName-table-row {
-  display: list-item;
-  flex-wrap: wrap;
-}
-
-#contactName-table-header {
-  font-weight: bold;
-  padding: 12px;
-  border-bottom: 3px solid black;
-}
-
-.contactName-table-row {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid antiquewhite;
-}
-
-.btn-back {
-  margin-top: 50px;
-}
-
-.btn-delete,
-.btn-update,
-.btn-back {
-  background-color: rgba(171, 230, 235, 0.246);
-  color: rgb(188, 36, 173);
-  border: 2px solid black;
-  padding: 10px;
-  font-size: 16px;
-  margin: 0 auto;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.btn-delete:hover,
-.btn-update:hover,
-.btn-back:hover {
-  background-color: transparent;
-  color: rgba(61, 18, 231, 0.864);
-}
-
-.mdi--telephone-outline {
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M20 15.5c-1.2 0-2.5-.2-3.6-.6h-.3c-.3 0-.5.1-.7.3l-2.2 2.2c-2.8-1.5-5.2-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1c-.3-1.1-.5-2.4-.5-3.6c0-.5-.5-1-1-1H4c-.5 0-1 .5-1 1c0 9.4 7.6 17 17 17c.5 0 1-.5 1-1v-3.5c0-.5-.5-1-1-1M5 5h1.5c.1.9.3 1.8.5 2.6L5.8 8.8C5.4 7.6 5.1 6.3 5 5m14 14c-1.3-.1-2.6-.4-3.8-.8l1.2-1.2c.8.2 1.7.4 2.6.4z'/%3E%3C/svg%3E");
-  background-color: currentColor;
-  -webkit-mask-image: var(--svg);
-  mask-image: var(--svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-
-.ic--outline-email {
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5l-8-5zm0 12H4V8l8 5l8-5z'/%3E%3C/svg%3E");
-  background-color: currentColor;
-  -webkit-mask-image: var(--svg);
-  mask-image: var(--svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-
-.tabler--address-book {
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M20 6v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2M10 16h6'/%3E%3Cpath d='M11 11a2 2 0 1 0 4 0a2 2 0 1 0-4 0M4 8h3m-3 4h3m-3 4h3'/%3E%3C/g%3E%3C/svg%3E");
-  background-color: currentColor;
-  -webkit-mask-image: var(--svg);
-  mask-image: var(--svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-
-.mdi--user {
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4'/%3E%3C/svg%3E");
-  background-color: currentColor;
-  -webkit-mask-image: var(--svg);
-  mask-image: var(--svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-</style>
+-->
