@@ -40,7 +40,7 @@ export default {
 </script>
 <!---->
 <template>
-  <form class="max-w-md mx-auto">
+  <form class="max-w-md mx-auto  shadow-md sm:rounded-lg">
     <div class="relative z-0 w-full mb-5 group">
       <input type="text" name="floating_name" id="floating_name" v-model="contact.name" 
         class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
@@ -73,16 +73,22 @@ export default {
         class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
          E-mail: </label>
     </div>
-    <div class="relative z-0 w-full mb-5 group">
-    <button @click="updateContact" type="updateContact"
-      class="text-white bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
-       Atualizar Contato</button>
-    </div>   
-    <div class="relative z-0 w-full mb-5 group">
-    <button type="route-back" @click="$router.back()"
-    class="text-white bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
-     Voltar a Detalhes </button>
-   </div>
+   <button @click="updateContact"
+    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 
+    rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
+    dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
+      <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+        Atualizar Contato
+      </span>
+    </button>
+    <button @click="$router.back()"
+    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 
+    rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
+    dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
+      <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          Voltar
+      </span>
+    </button>
   </form>
 </template>
 <!---->

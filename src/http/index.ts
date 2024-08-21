@@ -1,7 +1,7 @@
 import type IContact from "../interfaces/IContact";   
 import axios from "axios";
 
-async function getDataURL<T>(url: string) {
+export async function getDataURL<T>(url: string) {
   const response = await fetch(url);
   return response.json() as T;
 }

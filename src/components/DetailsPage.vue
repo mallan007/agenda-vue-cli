@@ -41,14 +41,14 @@ export default defineComponent({
 </script>
 <!---->
 <template>
-  <form class="max-w-md mx-auto">
+  <form class="max-w-md mx-auto shadow-md sm:rounded-lg bg-gray-300">
     <div class="relative z-0 w-full mb-5 group">
       <input type="text" name="floating_name" id="floating_name" v-model="this.name" 
         class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
         placeholder=" " disabled readonly />
       <label for="floating_name"
         class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-         Nome: </label>
+        Nome: </label>
     </div>
     <div class="relative z-0 w-full mb-5 group">
       <input type="tel" pattern="[0-9]{2}-[9]{1}-[0-9]{4}-[0-9]{4}" name="floating_cellNumber" id="floating_cellNumber" v-model="this.cellNumber" 
@@ -76,31 +76,33 @@ export default defineComponent({
          E-mail: </label>
          </span>
     </div>
-    <div class="relative z-0 w-full mb-5 group">
-    <button type="editContact"
-      class="text-fuchsia-500 bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
-       <router-link :to="'/update/'+this.$route.params.id">
-         Editar Contato </router-link>
-      </button>
-    </div>  
-    <div class="relative z-0 w-full mb-5 group">
-    <button type="editContact" @click="$router.push('/update/'+this.$route.params.id)"
-      class="text-fuchsia-500 bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
-         Editar Contato com RoutePush
-      </button>
-    </div> 
-    <div class="relative z-0 w-full mb-5 group">
-    <button type="deleteContact" @click="deleteContact(this.id)"
-      class="text-fuchsia-500 bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-fuchsia-700">
-       Excluir Contato</button>
-    </div> 
-  
-    <div class="relative z-0 w-full mb-5 group">
-    <button type="route-home" @click="$router.push('/')"
-      class="text-fuchsia-500 bg-fuchsia-700 hover:bg-sky-300 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-sky-200 dark:hover:bg-fuchsia-500 dark:focus:ring-sky-200">
-       Voltar</button>
-    </div> 
-    
+
+    <button @click="$router.push('/update/'+this.$route.params.id)"
+    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 
+    rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
+    dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
+      <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+        <router-link :to="'/update/'+this.$route.params.id">
+          Editar Contato </router-link>
+      </span>
+    </button>
+    <button @click="$router.push('/')"
+    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 
+    rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
+    dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
+      <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          Voltar
+      </span>
+    </button>
+    <button @click="deleteContact(this.id)"
+    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 
+    rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
+    dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
+      <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+        Excluir Contato
+      </span>
+    </button>
+
   </form>
 </template>
 <style scoped>

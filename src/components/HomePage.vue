@@ -32,114 +32,41 @@ export default {
 </script>
 <!---->
 <template>
-  <div class="main-container">
-    <div id="contactName-table">
-    </div>
-    <div id="contactName-header">
-      <router-link to="/add" class="btn-add-link">Adicionar novo contato</router-link>
-      <h1>Lista de Contatos:</h1>
-      <div id="contactName-table-rows">
-        <div class="contactName-table-row" v-for="contact in contacts" :key="contact.id">
-          <div class="contactName-table-cell">
-            <router-link class="btn-details" :to="'/details/' + contact.id">{{ contact.name }} </router-link>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <h1>Teste com Tailwind</h1>
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-  <router-link to="/add" class="btn-add-link">Adicionar novo contato</router-link>
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 
+    rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
+    dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
+      <span
+        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+        <router-link to="/add" class="btn-add-link">
+          Adicionar novo contato </router-link>
+      </span>
+    </button>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    Lista de Contatos
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th v-for="contact in contacts" :key="contact.id"
-                  scope="row" class="px-6 py-4 font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                    <router-link :to="'/details/' + contact.id"> {{ contact.name }} </router-link>
-                </th>
-            </tr>
-        </tbody>
-    </table>
-</div>
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th>
+            
+            Lista de Contatos
+          </th>
+        </tr>
+      </thead>
+      <tbody v-for="contact in contacts" :key="contact.id">
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <td scope="row" class="px-6 py-4 font-medium text-fuchsia-600 dark:text-fuchsia-500 hover:underline ">
+            <div class="flex items-center gap-2">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z" clip-rule="evenodd"/>
+            </svg>
 
+            <router-link :to="'/details/' + contact.id"> {{ contact.name }} </router-link>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
 </template>
 <!---->
-<style scoped>
-#contactName-table {
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-#contactName-table-header,
-#contactName-table-rows,
-.contactName-table-row {
-  display: list-item;
-  flex-wrap: wrap;
-}
-
-#contactName-table-header {
-  font-weight: bold;
-  padding: 12px;
-  border-bottom: 3px solid black;
-}
-
-.contactName-table-row {
-  width: 300px;
-  padding: 12px;
-  border: 1px solid antiquewhite;
-}
-
-.btn-details {
-  background-color: rgba(171, 230, 235, 0.246);
-  color: rgb(188, 36, 173);
-  border: 2px solid black;
-  padding: 10px;
-  font-size: 16px;
-  margin: 0 auto;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.btn-details:hover {
-  background-color: transparent;
-  color: rgba(61, 18, 231, 0.864);
-}
-
-.btn-add-link {
-  max-width: 300px;
-  margin: 0 auto;
-  font-weight: bold;
-  padding: 12px;
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 30px;
-  color: black;
-  justify-content: left;
-}
-
-.btn-details,
-.btn-add-link {
-  background-color: rgba(171, 230, 235, 0.246);
-  color: rgb(188, 36, 173);
-  border: 2px solid black;
-  padding: 10px;
-  font-size: 16px;
-  margin: 0 auto;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.btn-details:hover,
-.btn-add-link:hover {
-  background-color: transparent;
-  color: rgba(61, 18, 231, 0.864);
-}
-</style>
+<style scoped></style>
