@@ -1,7 +1,10 @@
 import axios from 'axios';
-//fazer import de IContact para usar no loadData
+import type Contacts from '../services/Contacts';
+//fazer import de Contacts para usar no loadData
 
 async function loadData() {
+  contacts: [] as Contacts[],
+
   const result = await axios.get("http://localhost:3000/contacts");
   this.contacts = result.data;
   this.name = result.data.name;
@@ -13,4 +16,3 @@ async function loadData() {
 
 export default loadData; 
 // DetailsPage e UpdatePage puxam do loadData através do método 'mounted' 
-// const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
