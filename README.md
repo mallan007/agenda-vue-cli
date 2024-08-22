@@ -12,31 +12,28 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 
 ## Dependencies:
-### JSON Server for database loading:
 
+### Mock API Link:
+https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts
+
+### JSON Server for database loading:
 ```sh
 npm install json-server
 ```
 
-### Iconify:
+#### Backend Watcher {filepath: package.json}:
+"backend": "json-server --watch database/agenda.json"
 
+#### Json-Server:
+[CLI or REST API](https://www.npmjs.com/package/json-server)
 ```sh
-npm install iconify
-
+npm npm install json-server
 ``` 
 
 ### Tailwind
 See [Tailwind intallation page](https://tailwindcss.com/docs/installation/using-postcss).
 ```sh
 npm npm install -D tailwindcss postcss autoprefixer
-
-``` 
-
-### Iconify with Tailwind:
-
-```sh
-npm install --save-dev @iconify/tailwind
-
 ``` 
 
 ## Project Setup

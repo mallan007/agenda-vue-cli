@@ -17,7 +17,7 @@ export default defineComponent({
   },
   methods: {
     async deleteContact(id) {
-      let result = await axios.delete("http://localhost:3000/contacts/" + this.$route.params.id);
+      let result = await axios.delete("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/" + this.$route.params.id);
       console.log(result);
       if (result.status == 200) {
         //this.loadData();
@@ -27,7 +27,7 @@ export default defineComponent({
     },
   },
   async mounted() {
-    const result = await axios.get("http://localhost:3000/contacts/" + this.$route.params.id);
+    const result = await axios.get("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/" + this.$route.params.id);
     console.log(result.data);
     this.contact = result.data;
     this.name = result.data.name;
@@ -42,6 +42,14 @@ export default defineComponent({
 <!---->
 <template>
   <form class="max-w-md mx-auto shadow-md sm:rounded-lg bg-gray-300">
+    <div flex items-center gap-2 class="mx-auto w-full shadow-md sm:rounded-lg px-2.5 py-2.5 text-center inline-flex items-center">
+      <svg class="w-6 h-6 text-stone-950 dark:text-stone-950" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4Zm10 5a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1Zm0 3a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1Zm0 3a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1Zm-8-5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm1.942 4a3 3 0 0 0-2.847 2.051l-.044.133-.004.012c-.042.126-.055.167-.042.195.006.013.02.023.038.039.032.025.08.064.146.155A1 1 0 0 0 6 17h6a1 1 0 0 0 .811-.415.713.713 0 0 1 .146-.155c.019-.016.031-.026.038-.04.014-.027 0-.068-.042-.194l-.004-.012-.044-.133A3 3 0 0 0 10.059 14H7.942Z" clip-rule="evenodd"/>
+      </svg>
+     Detalhes do Contato
+  </div>
+  <br>
+  <br>
     <div class="relative z-0 w-full mb-5 group">
       <input type="text" name="floating_name" id="floating_name" v-model="this.name" 
         class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
@@ -109,32 +117,10 @@ export default defineComponent({
 
 </style>
 <!----
-Erro do Tailwind na rota de Update
+Icon Delete User:
+<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M5 8a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-2 9a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1Zm13-6a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z" clip-rule="evenodd"/>
+</svg>
 
-<template>
-  <div id="contactName-table">
-    <h1> Dados do contato </h1>
-    <div id="contactName-header">
-      <div id="contactName-table-rows">
-        <div class="contactName-table-row">
-          <span class="tabler--address-book"></span>
-          <textarea v-model="this.name">Nome: {{ this.name }}</textarea><br>
-          <span class="mdi--telephone-outline"></span>
-          <textarea v-model="this.cellNumber">Telefone: {{ this.cellNumber }}</textarea><br>
-          <span class="tabler--address-book"></span>
-          <textarea v-model="this.address">Endereço: {{ this.address }}</textarea><br>
-          <span class="ic--outline-email"></span>
-          <textarea v-model="this.email">E-mail: {{ this.email }}</textarea><br>
-          <div>
-            <router-link class="btn-update" :to="'/update/' + this.$route.params.id"> Editar </router-link>
-            <button class="btn-delete" @click="deleteContact(this.id)"> Deletar </button>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <button class="btn-back" @click="$router.back()">Voltar ao Início</button>
-  </div>
-</template>
 
 -->
