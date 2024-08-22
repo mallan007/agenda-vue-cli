@@ -11,27 +11,31 @@ export default {
         name: '',
         cellNumber: '',
         address: '',
-        email: ''
+        email: '',
       }
     }
   },
   methods: {
     async addNewContact() {
       console.log(this.contact);
-      if (this.contact.name == '' || this.contact.cellNumber == '' || this.contact.address == '' || this.contact.email == '') {
-        alert("Preencha todos os campos vazios");
-        return;
-      }
-      const result = await axios.post("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts", {
+      if (this.contact.name != '' || this.contact.cellNumber != '' || this.contact.address != '' || this.contact.email != '') {
+       const result = await axios.post("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/", {
         name: this.contact.name,
         cellNumber: this.contact.cellNumber,
         address: this.contact.address,
-        email: this.contact.email
+        email: this.contact.email,
       });
-      console.log(result);
+      console.log("Result: "+result);
       if (result.status == 201) {
         alert(`${this.contact.name} foi adicionado com sucesso.`);
-        this.$router.push("/");
+        this.$router.push('/');
+      } else {
+        alert("Erro ao adicionar contato");
+      }
+
+      } else {
+        alert("Preencha todos os campos");
+        return;
       }
       
     },
@@ -58,7 +62,7 @@ export default {
          Nome do Contato</label>
     </div>
     <div class="relative z-0 w-full mb-5 group"> 
-      <input type="tel" pattern="[0-9]{2}-[9]{1}-[0-9]{4}-[0-9]{4}" name="floating_cellNumber" id="floating_cellNumber" v-model="contact.cellNumber"
+      <input type="tel" pattern="[0-9]{2}-[9]{1}-[0-9]{4}-[0-9]{4} || [0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_cellNumber" id="floating_cellNumber" v-model="contact.cellNumber"
         class="block py-7 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
         placeholder="85-9-XXXX-XXXX" required />
       <label for="floating_cellNumber"

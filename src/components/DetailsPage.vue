@@ -21,7 +21,7 @@ export default defineComponent({
       console.log(result);
       if (result.status == 200) {
         //this.loadData();
-        this.$router.push("/");
+        this.$router.push('/');
       }
       alert(`${this.name} foi excluído com sucesso.`);
     },

@@ -27,7 +27,7 @@ export default {
 
       if (result.status == 200) {
         alert('Contato atualizado com sucesso');
-        this.$router.push("/");
+        this.$router.push('/');
       }
     },
   },
@@ -90,7 +90,7 @@ export default {
         Atualizar Contato
       </span>
     </button>
-    <button @click="$router.back()"
+    <button @click="$router.push('/')"
     class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 
     rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
     dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
