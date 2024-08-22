@@ -169,11 +169,11 @@
       "email": "juverdunio@yahoo.com.br"
     },
     {
-      "id": "31",
       "name": "Strogonoffer",
       "cellNumber": "86 9 8999 - 9888",
       "address": "Rua Dois Cavalos, 123",
-      "email": "strog@yahoo.com.br"
+      "email": "strogon@yahoo.com.br",
+      "id": "31"
     },
     {
       "id": "32",
@@ -230,6 +230,13 @@
       "cellNumber": "85-9-8888-8888",
       "address": "Rua Imaginação Morta, 1001",
       "email": "nananao@gmail.com"
+    },
+    {
+      "id": "2509",
+      "name": "Ruibarbón",
+      "cellNumber": "85-9-0000-0000",
+      "address": "Rua Barbônica, 123",
+      "email": "rui.barb-on@yahoo.com.br"
     }
   ]
 }
