@@ -20,11 +20,15 @@ export default {
 
       console.log(this.contact);
       function validEmail(email:string) {
-        console.warn(email);
         if (!email) return ''
         return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email)
       }
-      if (this.contact.name != '' && this.contact.cellNumber != '' && this.contact.address != '' && validEmail(this.contact.email) != '') {
+      function validCellNumber(cellNumber:string) {
+        if (!cellNumber) return ''
+        return /^(0|[1-9]\d*)$/.test(cellNumber)
+      }
+      
+      if (this.contact.name != '' && validCellNumber(this.contact.cellNumber) != '' && this.contact.address != '' && validEmail(this.contact.email) != '') {
         const result = await axios.post("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/", {
           name: this.contact.name,
           cellNumber: this.contact.cellNumber,
