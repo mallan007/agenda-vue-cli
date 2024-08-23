@@ -18,7 +18,7 @@ export default {
   methods: {
     async updateContact() {
       console.log(this.contact);
-      const result = await axios.put("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/" + this.$route.params.id, {
+      const result = await axios.put("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/" + this.$route.params.id, { 
         name: this.contact.name,
         cellNumber: this.contact.cellNumber,
         address: this.contact.address,
@@ -59,7 +59,7 @@ export default {
          Nome: </label>
     </div>
     <div class="relative z-0 w-full mb-5 group">
-      <input type="tel" pattern="[0-9]{2}-[0-9]{1}-[0-9]{4}-[0-9]{4}" name="floating_cellNumber" id="floating_cellNumber" v-model="contact.cellNumber" 
+      <input type="tel" pattern="[0-9]{2}-[9]{1}-[0-9]{4}-[0-9]{4} || [0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_cellNumber" id="floating_cellNumber" v-model="contact.cellNumber" 
         class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
         placeholder=" " required />
       <label for="floating_cellNumber"
