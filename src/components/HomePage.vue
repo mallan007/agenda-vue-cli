@@ -37,8 +37,8 @@ export default {
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
       <div flex items-center gap-2 class="mx-auto w-full text-center inline-flex items-center bg-transparent">
         <button class="relative inline-flex w-full items-center justify-center overflow-hidden text-sm font-medium text-gray-900 
-    rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
-    dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
+          rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
+          dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
           <svg class="w-6 h-6 text-white-950 dark:text-white-950" shadow-md sm:rounded-lg px-2.5 py-2.5
             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
             viewBox="0 0 24 24">

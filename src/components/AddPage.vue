@@ -17,8 +17,14 @@ export default {
   },
   methods: {
     async addNewContact() {
+
       console.log(this.contact);
-      if (this.contact.name != '' && this.contact.cellNumber != '' && this.contact.address != '' && this.contact.email != '') {
+      function validEmail(email:string) {
+        console.warn(email);
+        if (!email) return ''
+        return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email)
+      }
+      if (this.contact.name != '' && this.contact.cellNumber != '' && this.contact.address != '' && validEmail(this.contact.email) != '') {
         const result = await axios.post("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/", {
           name: this.contact.name,
           cellNumber: this.contact.cellNumber,
@@ -31,6 +37,7 @@ export default {
           this.$router.push('/');
         } else {
           alert("Erro ao adicionar contato");
+          return;
         }
 
       } else {
@@ -90,7 +97,7 @@ export default {
         class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
         E-mail do Contato</label>
     </div>
-    <button @click="addNewContact" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 
+    <button type="submit" @click="addNewContact" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 
     rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white 
     dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
       <span

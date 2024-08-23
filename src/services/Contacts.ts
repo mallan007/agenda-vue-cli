@@ -13,9 +13,10 @@ export default class Contacts {
 }   
 
 export async function loadData() {
-    let result = await axios.get("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts");
+    let result = await http.get("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts");
     contacts: [] as Contacts[];
     let contacts = result.data;
+    return contacts
   }
 /* 
   
