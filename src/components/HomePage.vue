@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
 import axios from 'axios';
+import { RouterLink } from 'vue-router';
 
 
 export default {

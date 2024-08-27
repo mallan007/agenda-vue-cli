@@ -16,7 +16,7 @@
     "json-server": "^1.0.0-beta.1",
     "vue": "^3.4.29",
     "vue-axios": "^3.5.2",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@iconify/tailwind": "^1.1.2",

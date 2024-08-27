@@ -1,5 +1,6 @@
 <script lang="ts">
 import axios from 'axios';
+import { RouterLink } from 'vue-router';
 
 export default {
   name: 'AddPage',
@@ -19,16 +20,7 @@ export default {
     async addNewContact() {
 
       console.log(this.contact);
-      function validEmail(email:string) {
-        if (!email) return ''
-        return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email)
-      }
-      function validCellNumber(cellNumber:string) {
-        if (!cellNumber) return ''
-        return /^(0|[1-9]\d*)$/.test(cellNumber)
-      }
-      
-      if (this.contact.name != '' && validCellNumber(this.contact.cellNumber) != '' && this.contact.address != '' && validEmail(this.contact.email) != '') {
+      if (this.contact.name != '' && this.contact.cellNumber != '' && this.contact.address != '' && this.contact.email != '') {
         const result = await axios.post("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/", {
           name: this.contact.name,
           cellNumber: this.contact.cellNumber,
@@ -39,12 +31,11 @@ export default {
         if (result.status == 201) {
           alert(`${this.contact.name} foi adicionado com sucesso.`);
           this.$router.push('/');
-        } else {
+        }else {
           alert("Erro ao adicionar contato");
           return;
         }
-
-      } else {
+      }else {
         alert("Preencha todos os campos");
         return;
       }
@@ -80,7 +71,7 @@ export default {
       <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         name="floating_cellNumber" id="floating_cellNumber" v-model="contact.cellNumber"
         class="block py-7 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
-        placeholder="85-9-XXXX-XXXX" required />
+        placeholder="XXX-XXX-XXXX" required />
       <label for="floating_cellNumber"
         class="peer-focus:font-medium absolute text-sm text-fuchsia-500 dark:text-fuchsia-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
         Número do Contato</label>

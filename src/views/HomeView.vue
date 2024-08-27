@@ -1,7 +1,6 @@
 <script lang="ts">
 import HomePage from '@/components/HomePage.vue';
 
-
 export default {
     name: 'HomeView',
     components: {

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import axios from "axios";
 import { defineComponent } from "vue";
 
@@ -6,11 +6,13 @@ export default defineComponent({
   name: "DetailsPage",
   data() {
     return {
-      name: "",
-      cellNumber: "",
-      address: "",
-      email: "",
-      contacts: [],
+      contact: {
+        name: '',
+        cellNumber: '',
+        address: '',
+        email: ''
+      }
+      //contacts: [],
     };
   },
   async mounted() {
@@ -18,27 +20,28 @@ export default defineComponent({
       "https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/" +
       this.$route.params.id
     );
-    console.log(result.data);
+
     this.contact = result.data;
-    this.name = result.data.name;
-    this.cellNumber = result.data.cellNumber;
-    this.address = result.data.address;
-    this.email = result.data.email;
+    this.contact.name = result.data.name;
+    this.contact.cellNumber = result.data.cellNumber;
+    this.contact.address = result.data.address;
+    this.contact.email = result.data.email;
 
     console.log(result.data);
   },
   methods: {
-    async deleteContact(id) {
+    /*async deleteContact() {
       let result = await axios.delete("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/"+this.$route.params.id);
+      console.log("Result: "+ result);
       if (result.status == 200) {
-        alert(`${this.name} foi excluído com sucesso.`);
+        alert(`${this.contact.name} foi excluído com sucesso.`);
         this.$router.push('/');
       } else {
         alert("Erro ao excluir contato");
         return
       }
      
-    },
+    },*/
   },
 
 });
@@ -59,7 +62,7 @@ export default defineComponent({
     <br />
     <br />
     <div class="relative z-0 w-full mb-5 group">
-      <input type="text" name="floating_name" id="floating_name" v-model="this.name"
+      <input type="text" name="floating_name" id="floating_name" v-model="contact.name"
         class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
         placeholder=" " disabled readonly />
       <label for="floating_name"
@@ -69,7 +72,7 @@ export default defineComponent({
     </div>
     <div class="relative z-0 w-full mb-5 group">
       <input type="tel" pattern="[0-9]{2}-[9]{1}-[0-9]{4}-[0-9]{4}" name="floating_cellNumber" id="floating_cellNumber"
-        v-model="this.cellNumber"
+        v-model="contact.cellNumber"
         class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
         placeholder=" " disabled readonly />
       <label for="floating_cellNumber"
@@ -78,7 +81,7 @@ export default defineComponent({
       </label>
     </div>
     <div class="relative z-0 w-full mb-5 group">
-      <input type="text" name="floating_address" id="floating_address" v-model="this.address"
+      <input type="text" name="floating_address" id="floating_address" v-model="contact.address"
         class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
         placeholder=" " disabled readonly />
       <label for="floating_address"
@@ -88,7 +91,7 @@ export default defineComponent({
     </div>
     <div class="relative z-0 w-full mb-5 group">
       <span class="icon-[ic--outline-email]" style="width: 48px; height: 48px">
-        <input type="email" name="floating_email" id="floating_email" v-model="this.email"
+        <input type="email" name="floating_email" id="floating_email" v-model="contact.email"
           class="block py-2.5 px-0 w-full text-sm text-stone-950 bg-transparent border-0 border-b-2 border-fuchsia-500 appearance-none dark:text-stone-950 dark:border-sky-200 dark:focus:border-sky-200 focus:outline-none focus:ring-0 focus:border-sky-200 peer"
           placeholder=" " disabled readonly />
         <label for="floating_email"
@@ -98,11 +101,11 @@ export default defineComponent({
       </span>
     </div>
 
-    <button @click="$router.push('/update/' + this.$route.params.id)"
+    <button @click="$router.push('/update/' + $route.params.id)"
       class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
       <span
         class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-        <router-link :to="'/update/' + this.$route.params.id">
+        <router-link :to="'/update/' + $route.params.id">
           Editar Contato
         </router-link>
       </span>
@@ -113,14 +116,14 @@ export default defineComponent({
         class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
         Voltar
       </span>
-    </button>
-    <button @click="deleteContact(this.id)"
+    </button> 
+    <!--button @click="deleteContact($route.params.id)"
       class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-fuchsia-500 to-pink-500 group-hover:from-fuchsia-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-fuchsia-200 dark:focus:ring-fuchsia-800">
       <span
         class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
         Excluir Contato
       </span>
-    </button>
+    </button-->
   </form>
 </template>
 <style scoped></style>
