@@ -1,6 +1,5 @@
 <script lang="ts">
 import axios from 'axios';
-import { RouterLink } from 'vue-router';
 
 export default {
   name: 'AddPage',
@@ -18,15 +17,15 @@ export default {
   },
   methods: {
     async addNewContact() {
-
-      console.log(this.contact);
       if (this.contact.name != '' && this.contact.cellNumber != '' && this.contact.address != '' && this.contact.email != '') {
+        console.log(this.contact);
         const result = await axios.post("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/", {
           name: this.contact.name,
           cellNumber: this.contact.cellNumber,
           address: this.contact.address,
           email: this.contact.email,
         });
+        
         console.log("Result: " + result);
         if (result.status == 201) {
           alert(`${this.contact.name} foi adicionado com sucesso.`);
@@ -35,13 +34,45 @@ export default {
           alert("Erro ao adicionar contato");
           return;
         }
-      }else {
+      } else {
         alert("Preencha todos os campos");
         return;
       }
-
+      
     },
   },
+  computed: {
+    isValid (): void {
+      function validName(name:string) {
+        if (!(/\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/).test(name)) {
+          alert ("Nome inválido. ");
+          return;
+        }
+      }
+
+      function validCellNumber(cellNumber:string) {
+        if ((/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/).test(cellNumber) != true ) {
+          alert ("Número de telefone inválido. ");
+          return;
+        }
+      }
+
+      function validAddress(address:string) {
+        if ((/^(\d{1,}) [a-zA-Z0-9\s]+(\,)? [a-zA-Z]+(\,)? [A-Z]{2} [0-9]{5,6}$/).test(address) != true){
+          alert ("Endereço inválido. ");
+          return;
+        }
+      }
+
+      function validEmail(email:string) {
+        if ((/^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/).test(email) != true ) {
+          alert ("Email inválido. ");
+          return;
+        }
+      }
+
+    }
+  }
 }
 </script>
 <!---->

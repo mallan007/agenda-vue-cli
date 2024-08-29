@@ -9,11 +9,3 @@ export async function getDataURL<T>(url: string) {
 export async function getContacts() {
   return getDataURL<Contacts[]>('https://668ec466bf9912d4c92fa7b7.mockapi.io/api/');
 }
-
-export const http = axios.create ({
-  baseURL: "https://668ec466bf9912d4c92fa7b7.mockapi.io/api/",
-})
-
-
-
-

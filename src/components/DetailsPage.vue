@@ -12,7 +12,6 @@ export default defineComponent({
         address: '',
         email: ''
       }
-      //contacts: [],
     };
   },
   async mounted() {
@@ -30,18 +29,6 @@ export default defineComponent({
     console.log(result.data);
   },
   methods: {
-    /*async deleteContact() {
-      let result = await axios.delete("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/"+this.$route.params.id);
-      console.log("Result: "+ result);
-      if (result.status == 200) {
-        alert(`${this.contact.name} foi excluído com sucesso.`);
-        this.$router.push('/');
-      } else {
-        alert("Erro ao excluir contato");
-        return
-      }
-     
-    },*/
   },
 
 });

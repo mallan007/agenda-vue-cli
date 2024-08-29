@@ -1,72 +1,5 @@
-<script lang="ts">
-import api from '../services/api';
-
-export default {
-  name: 'UpdateView',
-  components: {
-  },
-  data() {
-    return {
-      contact: {
-        name: '',
-        cellNumber: '',
-        address: '',
-        email: ''
-      }
-    }
-  },
-  methods: {
-    async updateContact() {
-
-      function validEmail(email: string) {
-        if (!email) return ''
-        return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email)
-      }
-      function validCellNumber(cellNumber: string) {
-        if (!cellNumber) return ''
-        return /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(cellNumber)
-      }
-
-      if (this.contact.name != '' && validCellNumber(this.contact.cellNumber) != '' 
-            && this.contact.address != '' && validEmail(this.contact.email) != '') {
-        const result = await api.put("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/" + this.$route.params.id, {
-          name: this.contact.name,
-          cellNumber: this.contact.cellNumber,
-          address: this.contact.address,
-          email: this.contact.email,
-        });
-
-        if (result.status == 200) {
-          alert('Contato atualizado com sucesso');
-          this.$router.push('/');
-        }
-      }
-    },
-    async deleteContact() {
-      let result = await api.delete("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/" + this.$route.params.id);
-      console.log("Result: " + result);
-      if (result.status == 200) {
-        alert(`${this.contact.name} foi excluído com sucesso.`);
-        this.$router.push('/');
-      } else {
-        alert("Erro ao excluir contato");
-        return
-      }
-
-    },
-
-  },
-  async mounted() {
-    const result = await api.get("https://668ec466bf9912d4c92fa7b7.mockapi.io/api/contacts/" + this.$route.params.id);
-    console.log(result.data);
-    this.contact = result.data;
-  },
-}                    
-</script>
-<!---->
-<template>
-
-  <form class="max-w-md mx-auto shadow-md sm:rounded-lg">
+export const model =
+`<form class="max-w-md mx-auto shadow-md sm:rounded-lg">
     <div flex items-center gap-2
       class="mx-auto w-full shadow-md sm:rounded-lg px-2.5 py-2.5 text-center inline-flex items-center bg-gray-300">
       <svg class="w-6 h-6 text-stone-950 dark:text-stone-950" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +68,4 @@ export default {
         Voltar
       </span>
     </button>
-  </form>
-</template>
-<!---->
-<style scoped></style>
+  </form>`
